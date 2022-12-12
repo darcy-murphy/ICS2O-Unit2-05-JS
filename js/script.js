@@ -1,43 +1,26 @@
-
-
-// Copyright (c) 2020 Mr. Coxall All rights reserved
+// Copyright (c) 2022 Darcy Murphy All rights reserved
 //
 // Created by: Darcy Murphy
 // Created on: Nov 2022
 // This file contains the JS functions for index.html
 
-/**
- * Check servie worker.
- */
- if (navigator.serviceWorker) {
-  navigator.serviceWorker.register(
-    "/ICS2O-Unit5-01/sw.js",
-    {
-      scope:"/ICS2O-Unit5-01/",
-    }
-  )
-}
+"use strict"
 
 /**
- * This function displays the slider value.
+ * This function calculates pay and income tax
  */
-function myButtonClicked() {
-  document.getElementById("slider-value").innerHTML =
-    "<p>Value is: " + slider.value + "</p>"
+function enterClicked() {
+  //input
+  const hours = parseInt(document.getElementById("hours-worked").value)
+  const rate = parseInt(document.getElementById("hour-rate").value)
+
+  //process
+  const takeHomeSalary = hours * rate * (1.0 - 0.18)
+  const INCOMETAX = hours * rate * 0.18
+
+  //output
+  document.getElementById("pay").innerHTML =
+    "Your pay will be: $" + takeHomeSalary.toFixed(2)
+  document.getElementById("income-tax").innerHTML =
+    "The government will take: $" + INCOMETAX.toFixed(2)
 }
-
-const randomNumber = Math.floor(Math.random() * 6) + 1
-
-/** 
- * This function updates the slider value.
- */
-function updateSliderValue(valueFromSlider) {
-  document.getElementById("slider-value").innerHTML = valueFromSlider
-  document.getElementById("answer").innerHTML =
-    "The answer was, " + randomNumber + "!" + " You got it! Good job."
-  
-    // block of code to be executed if conditional is true
-  if (valueFromSlider != randomNumber) 
-    document.getElementById("answer").innerHTML = 
-    "The answer was, " + randomNumber + " !" + " Nice guess, but try again."
-  }
