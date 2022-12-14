@@ -1,7 +1,7 @@
-// Copyright (c) 2022 Darcy Murphy All rights reserved
+// Copyright (c) 2022 Timothy Manwell All rights reserved
 //
-// Created by: Darcy Murphy
-// Created on: Nov 2022
+// Created by: Timothy Manwell
+// Created on: Oct 2022
 // This file contains the JS functions for index.html
 
 "use strict"
@@ -12,7 +12,7 @@
 function enterClicked() {
   //input
   const hours = parseInt(document.getElementById("hours-worked").value)
-  const rate = parseInt(document.getElementById("hour-rate").value)
+  const rate = parseInt(document.getElementById("hourly-rate").value)
 
   //process
   const takeHomeSalary = hours * rate * (1.0 - 0.18)
